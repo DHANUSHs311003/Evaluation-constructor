@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructor Function</title>
+</head>
+<body>
+    <h1>Constructor function</h1>
+</body>
+<script>
+   function StudentDetails(name, roll_no, Class, Section, science, maths, social_science, English, Hindi) {
+    this.name = name;
+    this.roll_no = roll_no;
+    this.Class = Class;
+    this.Section = Section;
+    this.Science = science;
+    this.Maths = maths;  
+    this.Social_Science = social_science;
+    this.English = English;
+    this.Hindi = Hindi;
+}
+
+let student1 = new StudentDetails("Huzaifa", 16, "X", "A", 72, 75, 79, 80, 67);
+console.log(student1);
+
+function printReportCard() {
+    let percentage = ((this.Science + this.Maths + this.Social_Science + this.English + this.Hindi) / 500) * 100;
+
+    console.log(`
+    +-------------------------------+
+    |           REPORT CARD         |
+    +-------------------------------+
+    |         Name- ${this.name}         |
+    |         Roll no. - ${this.roll_no}         |
+    |         Class    - ${this.Class}          |
+    |         Section  - ${this.Section}          |
+    |         Science  - ${this.Science}         |
+    |         S.Sc     - ${this.Social_Science}         |
+    |         Maths    - ${this.Maths}         |
+    |         English  - ${this.English}         |     
+    |         Hindi    - ${this.Hindi}         |
+    |         Percent  - ${percentage} %     |
+    +-------------------------------+`);
+}
+
+printReportCard.call(student1);
+
+    
+</script>
+</html>
